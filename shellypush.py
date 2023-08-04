@@ -30,9 +30,9 @@ def main(shelly_url, shelly_gen, shelly_user, shelly_password, push_url, push_jo
         data["temperature"]
     )
     for i, m in enumerate(data["meters"]):
-        labels = "mac=\"{}\",timestamp=\"{}\",is_valid=\"{}\"".format(
+        labels = "mac=\"{}\",is_valid=\"{}\"".format(
             data["mac"],
-            m["timestamp"], 1 if m["is_valid"] else 0
+            1 if m["is_valid"] else 0
         )
         body = add_metric(
             body, "shelly_meter_{}_power".format(i),
