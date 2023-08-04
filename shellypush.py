@@ -20,8 +20,8 @@ def main(shelly_url, shelly_gen, shelly_user, shelly_password, push_url, push_jo
         exit(1)
     data = json.loads(r.text)
     body = ""
-    labels = "serial=\"{}\",mac=\"{}\",overtemperature=\"{}\"".format(
-        data["serial"], data["mac"], 1 if data["overtemperature"] else 0,
+    labels = "mac=\"{}\",overtemperature=\"{}\"".format(
+        data["mac"], 1 if data["overtemperature"] else 0,
         data["temperature"]
     )
     body = add_metric(
@@ -30,8 +30,8 @@ def main(shelly_url, shelly_gen, shelly_user, shelly_password, push_url, push_jo
         data["temperature"]
     )
     for i, m in enumerate(data["meters"]):
-        labels = "serial=\"{}\",mac=\"{}\",timestamp=\"{}\",is_valid=\"{}\"".format(
-            data["serial"], data["mac"],
+        labels = "mac=\"{}\",timestamp=\"{}\",is_valid=\"{}\"".format(
+            data["mac"],
             m["timestamp"], 1 if m["is_valid"] else 0
         )
         body = add_metric(
