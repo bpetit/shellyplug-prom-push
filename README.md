@@ -1,6 +1,6 @@
 # Shelly Plug prometheus push exporter
 
-## Get administrative access to the shelly plug
+## Get API access to the shelly plug
 
 1. Hold the button for more than 10 seconds to reset it to factory settings
 2. Connect to the shelly plug's own wifi network
